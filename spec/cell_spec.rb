@@ -2,7 +2,5 @@ require 'rspec'
 require_relative '../lib/cell.rb'
 
 describe Cell do
-  it 'exists' do
-    expect(subject).to be
-  end
+  it { is_expected.to respond_to :alive? }
 end
