@@ -4,6 +4,6 @@ class World
   def initialize(rows = 20, cols = 20)
     @rows = rows
     @cols = cols
-    @grid = Array.new(rows){ Array.new(cols, 1) }
+    @grid = Array.new(rows) { Array.new(cols) { Cell.new } }
   end
 end
