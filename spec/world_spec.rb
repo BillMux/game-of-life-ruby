@@ -8,6 +8,13 @@ describe World do
   it { is_expected.to respond_to :rows, :cols, :grid }
 
   it 'begins with a 20x20 cell grid' do
+    expect(subject.grid.length).to eq 20
+    subject.grid.each do |row|
+      expect(row.length).to eq 20
+    end
+  end
+
+  it 'contains 2d array of cell objects' do
     subject.grid.each do |row|
       expect(row).to be_an_instance_of Array
       row.each do |col|
