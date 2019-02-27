@@ -1,6 +1,6 @@
 class Cell
-  attr_reader :alive?
+  attr_reader :alive
 
-  def alive?
+  def alive
   end
 end
