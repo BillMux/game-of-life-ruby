@@ -3,7 +3,7 @@ require_relative 'cell'
 class World
   attr_reader :rows, :cols, :grid
 
-  def initialize(rows = 20, cols = 20)
+  def initialize(rows, cols)
     @rows = rows
     @cols = cols
     @grid = Array.new(rows) do |row|
