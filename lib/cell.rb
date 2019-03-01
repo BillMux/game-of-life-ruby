@@ -1,7 +1,9 @@
 class Cell
-  attr_reader :alive, :x_position, :y_position
+  attr_reader :alive, :x, :y
 
-  def initialize
+  def initialize(x, y)
     @alive = false
+    @x = x
+    @y = y
   end
 end
