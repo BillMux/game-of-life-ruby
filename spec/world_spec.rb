@@ -22,4 +22,9 @@ describe World do
       end
     end
   end
+
+  it 'can see cells "alive" method' do
+    expect(subject.grid[0][0]).to respond_to :alive
+  end
+
 end
