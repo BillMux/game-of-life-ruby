@@ -1,4 +1,7 @@
 class Cell
-  def alive
+  attr_reader :alive
+
+  def initialize
+    @alive = false
   end
 end
