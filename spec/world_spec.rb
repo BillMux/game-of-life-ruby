@@ -3,7 +3,8 @@ require_relative '../lib/world.rb'
 require_relative '../lib/cell.rb'
 
 describe World do
-  let(:cell) { double :cell }
+  subject { World.new }
+  let(:cell) { Cell.new(0, 0) }
 
   it { is_expected.to respond_to :rows, :cols, :grid }
 
