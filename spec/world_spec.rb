@@ -3,15 +3,15 @@ require_relative '../lib/world.rb'
 require_relative '../lib/cell.rb'
 
 describe World do
-  subject { World.new }
+  subject { World.new(3, 3) }
   let(:cell) { Cell.new(0, 0) }
 
   it { is_expected.to respond_to :rows, :cols, :grid }
 
-  it 'begins with a 20x20 cell grid' do
-    expect(subject.grid.length).to eq 20
+  it 'defaults to a cell grid of defined size' do
+    expect(subject.grid.length).to eq 3
     subject.grid.each do |row|
-      expect(row.length).to eq 20
+      expect(row.length).to eq 3
     end
   end
 
