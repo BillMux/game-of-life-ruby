@@ -1,3 +1,5 @@
+require_relative 'cell'
+
 class World
   attr_reader :rows, :cols, :grid
 
