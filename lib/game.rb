@@ -18,4 +18,7 @@ class Game
       @world.grid[seed[0]][seed[1]].alive = true
     end
   end
+
+  def tick!
+  end
 end
