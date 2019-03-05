@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'cell'
 require_relative 'world'
 
 # contains rules and logic to run the Game of Life
@@ -19,6 +18,5 @@ class Game
     end
   end
 
-  def tick!
-  end
+  def tick!; end
 end

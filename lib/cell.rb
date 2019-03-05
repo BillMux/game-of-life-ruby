@@ -10,14 +10,10 @@ class Cell
     @x_coord = x_coord
     @y_coord = y_coord
     @neighbours = [
-      [x_coord - 1, y_coord - 1],
-      [x_coord, y_coord - 1],
-      [x_coord + 1, y_coord - 1],
-      [x_coord - 1, y_coord],
-      [x_coord + 1, y_coord],
-      [x_coord - 1, y_coord + 1],
-      [x_coord, y_coord + 1],
-      [x_coord + 1, y_coord + 1],
+      [x_coord - 1, y_coord - 1], [x_coord, y_coord - 1],
+      [x_coord + 1, y_coord - 1], [x_coord - 1, y_coord],
+      [x_coord + 1, y_coord], [x_coord - 1, y_coord + 1],
+      [x_coord, y_coord + 1], [x_coord + 1, y_coord + 1]
     ]
   end
 

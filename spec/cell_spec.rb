@@ -5,8 +5,7 @@ require_relative '../lib/cell.rb'
 
 describe Cell do
   subject { Cell.new(1, 1) }
-  it { is_expected.to respond_to :alive }
-  it { is_expected.to respond_to :alive? }
+  it { is_expected.to respond_to :alive, :alive?, :x_coord, :y_coord }
 
   it 'is dead by default' do
     expect(subject.alive).to be false
@@ -14,8 +13,6 @@ describe Cell do
   end
 
   it 'has x and y coordinates' do
-    expect(subject).to respond_to :x_coord
-    expect(subject).to respond_to :y_coord
     expect(subject.x_coord).to eq 1
     expect(subject.y_coord).to eq 1
   end

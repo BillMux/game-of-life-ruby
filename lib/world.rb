@@ -17,4 +17,6 @@ class World
       Array.new(cols) { |col| Cell.new(col, row) }
     end
   end
+
+  def find_live_neighbours; end
 end
