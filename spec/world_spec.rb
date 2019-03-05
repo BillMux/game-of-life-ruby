@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require_relative '../lib/world.rb'
 require_relative '../lib/cell.rb'

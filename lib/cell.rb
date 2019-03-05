@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # the cells within world, which can be dead or alive
 class Cell
   attr_accessor :alive

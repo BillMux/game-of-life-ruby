@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require_relative '../lib/cell.rb'
 require_relative '../lib/game.rb'
@@ -6,7 +8,7 @@ require_relative '../lib/world.rb'
 describe Game do
   let(:world) { World.new(3, 3) }
   let(:subject_cell) { Cell.new(1, 1) }
-  subject { Game.new(world, [[0, 0]]) }
+  subject { Game.new(world, [[0, 0], [0, 1]]) }
 
   it 'initialises with the world object' do
     expect(subject.world).to be_an_instance_of World
@@ -18,6 +20,8 @@ describe Game do
 
   it 'plants seeds, cells become alive' do
     expect(subject.world.grid[0][0]).to be_alive
+    expect(subject.world.grid[0][1]).to be_alive
+    expect(subject.world.grid[0][2]).not_to be_alive
   end
 
   it 'should respond to methods' do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'cell'
 
 # 2d world in which the Game takes place
