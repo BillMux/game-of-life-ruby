@@ -6,9 +6,7 @@ require_relative '../lib/game.rb'
 require_relative '../lib/world.rb'
 
 describe Game do
-  let(:world) { World.new(3, 3) }
-  let(:subject_cell) { Cell.new(1, 1) }
-  subject { Game.new(world, [[0, 0], [0, 1]]) }
+  subject { Game.new(World.new(3, 3), [[1, 1]]) }
 
   it 'initialises with the world object' do
     expect(subject.world).to be_an_instance_of World
@@ -19,8 +17,7 @@ describe Game do
   end
 
   it 'plants seeds, cells become alive' do
-    expect(subject.world.grid[0][0]).to be_alive
-    expect(subject.world.grid[0][1]).to be_alive
+    expect(subject.world.grid[1][1]).to be_alive
     expect(subject.world.grid[0][2]).not_to be_alive
   end
 
@@ -30,12 +27,8 @@ describe Game do
   end
 
   context 'when cell is alive' do
-    before(:each) do
-      subject_cell.alive = true
+    it 'dies if less than two live neighbours' do
+      expect(subject.world.grid[1][1]).not_to be_alive
     end
-
-    # it 'dies if less than two live neighbours' do
-    #   expect(subject_cell.alive).to eq false
-    # end
   end
 end
