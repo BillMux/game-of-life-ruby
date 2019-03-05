@@ -14,7 +14,11 @@ describe Game do
 
   it 'initialises with seeds' do
     expect(subject.seeds).to be_an_instance_of Array
-    # expect(subject.seeds[0]).to be_an_instance_of Cell
+  end
+
+  it 'plants seeds, cells become alive' do
+    subject.seeds << [0, 0]
+    expect(world.grid[0][0]).to be_alive
   end
 
   it 'should respond to methods' do
