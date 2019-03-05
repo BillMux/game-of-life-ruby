@@ -6,7 +6,7 @@ require_relative '../lib/world.rb'
 describe Game do
   let(:world) { World.new(3, 3) }
   let(:subject_cell) { Cell.new(1, 1) }
-  subject { Game.new(world, []) }
+  subject { Game.new(world, [[0, 0]]) }
 
   it 'initialises with the world object' do
     expect(subject.world).to be_an_instance_of World
@@ -17,8 +17,7 @@ describe Game do
   end
 
   it 'plants seeds, cells become alive' do
-    subject.seeds << [0, 0]
-    expect(world.grid[0][0]).to be_alive
+    expect(subject.world.grid[0][0]).to be_alive
   end
 
   it 'should respond to methods' do
