@@ -4,7 +4,7 @@ require 'rspec'
 require_relative '../lib/cell.rb'
 
 describe Cell do
-  subject { Cell.new(0, 0) }
+  subject { Cell.new(1, 1) }
   it { is_expected.to respond_to :alive }
   it { is_expected.to respond_to :alive? }
 
@@ -16,7 +16,13 @@ describe Cell do
   it 'has x and y coordinates' do
     expect(subject).to respond_to :x_coord
     expect(subject).to respond_to :y_coord
-    expect(subject.x_coord).to eq 0
-    expect(subject.y_coord).to eq 0
+    expect(subject.x_coord).to eq 1
+    expect(subject.y_coord).to eq 1
+  end
+
+  it 'has neighbours, each with their own coordinates' do
+    expect(subject.neighbour_coords).to eq(
+      [[0, 0], [1, 0], [2, 0], [0, 1], [2, 1], [0, 2], [1, 2], [2, 2]]
+    )
   end
 end
