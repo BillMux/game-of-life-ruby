@@ -6,10 +6,12 @@ class World
   def initialize(rows, cols)
     @rows = rows
     @cols = cols
-    @grid = Array.new(rows) do |row|
-      Array.new(cols) do |col|
-        Cell.new(col, row)
-      end
+    @grid = create_grid
+  end
+
+  def create_grid
+    Array.new(rows) do |row|
+      Array.new(cols) { |col| Cell.new(col, row) }
     end
   end
 end
