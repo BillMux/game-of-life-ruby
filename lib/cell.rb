@@ -1,3 +1,4 @@
+# the cells within world, which can be dead or alive
 class Cell
   attr_reader :alive, :x, :y
 

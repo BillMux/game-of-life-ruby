@@ -1,5 +1,6 @@
 require_relative 'cell'
 
+# 2d world in which the Game takes place
 class World
   attr_reader :rows, :cols, :grid
 
