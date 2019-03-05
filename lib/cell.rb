@@ -6,4 +6,8 @@ class Cell
     @x = x
     @y = y
   end
+
+  def alive?
+    alive
+  end
 end
