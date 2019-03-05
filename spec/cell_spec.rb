@@ -14,9 +14,9 @@ describe Cell do
   end
 
   it 'has x and y coordinates' do
-    expect(subject).to respond_to :x
-    expect(subject).to respond_to :y
-    expect(subject.x).to eq 0
-    expect(subject.y).to eq 0
+    expect(subject).to respond_to :x_coord
+    expect(subject).to respond_to :y_coord
+    expect(subject.x_coord).to eq 0
+    expect(subject.y_coord).to eq 0
   end
 end

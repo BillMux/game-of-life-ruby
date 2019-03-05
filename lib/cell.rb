@@ -3,12 +3,12 @@
 # the cells within world, which can be dead or alive
 class Cell
   attr_accessor :alive
-  attr_reader :x, :y
+  attr_reader :x_coord, :y_coord
 
-  def initialize(x, y)
+  def initialize(x_coord, y_coord)
     @alive = false
-    @x = x
-    @y = y
+    @x_coord = x_coord
+    @y_coord = y_coord
   end
 
   def alive?
