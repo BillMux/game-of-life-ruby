@@ -21,7 +21,7 @@ describe Cell do
   end
 
   it 'has neighbours, each with their own coordinates' do
-    expect(subject.neighbour_coords).to eq(
+    expect(subject.neighbours).to eq(
       [[0, 0], [1, 0], [2, 0], [0, 1], [2, 1], [0, 2], [1, 2], [2, 2]]
     )
   end
