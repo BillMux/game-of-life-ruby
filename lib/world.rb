@@ -18,5 +18,13 @@ class World
     end
   end
 
-  def find_live_neighbours; end
+  def find_live_neighbours(cell)
+    live_neighbours = []
+    cell.neighbours.each do |x, y|
+      if @grid[x][y].alive == true
+        live_neighbours << @grid[x][y]
+      end
+    end
+    live_neighbours
+  end
 end
