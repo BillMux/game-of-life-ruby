@@ -21,9 +21,7 @@ class World
   def find_live_neighbours(cell)
     live_neighbours = []
     cell.neighbours.each do |x, y|
-      if @grid[x][y].alive == true
-        live_neighbours << @grid[x][y]
-      end
+      live_neighbours << @grid[x][y] if @grid[x][y].alive?
     end
     live_neighbours
   end
