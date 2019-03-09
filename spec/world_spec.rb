@@ -30,4 +30,12 @@ describe World do
   it 'can see cells "alive" method' do
     expect(subject.grid[0][0]).to respond_to :alive
   end
+
+  context 'cell can detect live neighbours' do
+    it 'to the north' do
+      subject.grid[0][1].alive = true
+      subject.grid[1][1].alive = true
+      expect(subject.find_live_neighbours(subject.grid[1][1]).count).to eq 1
+    end
+  end
 end
