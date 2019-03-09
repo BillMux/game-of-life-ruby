@@ -35,6 +35,9 @@ describe World do
     it 'to the north' do
       subject.grid[0][1].alive = true
       subject.grid[1][1].alive = true
+    end
+    
+    after(:each) do
       expect(subject.find_live_neighbours(subject.grid[1][1]).count).to eq 1
     end
   end
