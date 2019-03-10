@@ -14,7 +14,7 @@ class World
 
   def create_grid
     Array.new(rows) do |row|
-      Array.new(cols) { |col| Cell.new(col, row) }
+      Array.new(cols) { |col| Cell.new(row, col) }
     end
   end
 
