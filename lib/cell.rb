@@ -15,6 +15,17 @@ class Cell
       [x_coord + 1, y_coord], [x_coord - 1, y_coord + 1],
       [x_coord, y_coord + 1], [x_coord + 1, y_coord + 1]
     ]
+    delete_edge_neighbours
+  end
+
+  def delete_edge_neighbours
+    @neighbours.each do |coord|
+      coord.each do |x|
+        if x < 0
+          @neighbours.delete(coord)
+        end
+      end
+    end
   end
 
   def alive?
