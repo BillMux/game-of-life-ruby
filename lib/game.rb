@@ -18,5 +18,13 @@ class Game
     end
   end
 
-  def tick!; end
+  def tick!
+    @world.grid.each do |row|
+      row.each do |cell|
+        if cell.alive?
+          # p @world.find_live_neighbours(cell)
+        end
+      end
+    end
+  end
 end
