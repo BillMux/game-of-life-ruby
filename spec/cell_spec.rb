@@ -27,8 +27,8 @@ describe Cell do
   end
 
   it 'does not have neighbours on edge sides' do
-    subject_2 = world.grid[0][1]
-    expect(subject_2.neighbours).to eq(
+    subject2 = world.grid[0][1]
+    expect(subject2.neighbours).to eq(
       [[0, 0], [1, 0], [1, 1], [0, 2], [1, 2]]
     )
   end
