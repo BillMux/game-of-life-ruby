@@ -6,7 +6,7 @@ require_relative '../lib/game.rb'
 require_relative '../lib/world.rb'
 
 describe Game do
-  subject { Game.new(World.new(3, 3), [[1, 1]]) }
+  subject { Game.new(World.new(3, 3), [[1, 1], [0, 1]]) }
 
   it { is_expected.to respond_to :world, :seeds, :plant_seeds, :tick! }
 
@@ -20,6 +20,7 @@ describe Game do
 
   it 'plants seeds, cells become alive' do
     expect(subject.world.grid[1][1]).to be_alive
+    expect(subject.world.grid[0][1]).to be_alive
     expect(subject.world.grid[0][2]).not_to be_alive
   end
 
