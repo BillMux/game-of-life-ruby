@@ -18,17 +18,15 @@ class Cell
     delete_edge_neighbours
   end
 
-  def delete_edge_neighbours
-    @neighbours.each do |coord|
-      coord.each do |x|
-        if x < 0
-          @neighbours.delete(coord)
-        end
-      end
-    end
-  end
-
   def alive?
     alive
   end
+
+  private
+
+  def delete_edge_neighbours
+    @neighbours.each do |coord|
+      coord.each { |x| @neighbours.delete(coord) if x.negative? }
+    end
+  end  
 end
