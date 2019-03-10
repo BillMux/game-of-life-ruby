@@ -2,10 +2,13 @@
 
 require 'rspec'
 require_relative '../lib/cell.rb'
+require_relative '../lib/world.rb'
 
 describe Cell do
   subject { Cell.new(1, 1) }
-  it { is_expected.to respond_to :alive, :alive?, :x_coord, :y_coord }
+  let(:world) { World.new(3, 3) }
+  it { is_expected.to respond_to :x_coord, :y_coord, :neighbours }
+  it { is_expected.to respond_to :alive, :alive? }
 
   it 'is dead by default' do
     expect(subject.alive).to be false
@@ -20,6 +23,13 @@ describe Cell do
   it 'has neighbours, each with their own coordinates' do
     expect(subject.neighbours).to eq(
       [[0, 0], [1, 0], [2, 0], [0, 1], [2, 1], [0, 2], [1, 2], [2, 2]]
+    )
+  end
+
+  it 'does not have neighbours on edge sides' do
+    subject_2 = world.grid[0][1]
+    expect(subject_2.neighbours).to eq(
+      [[0, 0], [1, 0], [1, 1], [0, 2], [1, 2]]
     )
   end
 end
