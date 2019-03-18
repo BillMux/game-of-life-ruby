@@ -7,8 +7,7 @@ require_relative '../lib/cell.rb'
 describe World do
   subject { World.new(3, 3) }
 
-  it { is_expected.to respond_to :rows, :cols, :grid }
-  it { is_expected.to respond_to :create_grid, :find_live_neighbours }
+  it { is_expected.to respond_to :rows, :cols, :grid, :count_live_neighbours }
 
   it 'defaults to a cell grid of defined size' do
     expect(subject.grid.length).to eq 3
