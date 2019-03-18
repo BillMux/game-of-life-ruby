@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
-require 'rspec'
-require_relative '../lib/cell.rb'
 require_relative '../lib/game.rb'
-require_relative '../lib/world.rb'
 
 describe Game do
   subject { Game.new(World.new(3, 3), [[1, 1], [0, 1]]) }

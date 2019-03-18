@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'rspec'
 require_relative '../lib/cell.rb'
-require_relative '../lib/world.rb'
 
 describe Cell do
   subject { Cell.new(1, 1, 3, 3) }
