@@ -5,7 +5,7 @@ require_relative '../lib/cell.rb'
 describe Cell do
   subject { Cell.new(1, 1, 3, 3) }
   it { is_expected.to respond_to :x_coord, :y_coord, :neighbours }
-  it { is_expected.to respond_to :alive, :alive?, :grid_width, :grid_length }
+  it { is_expected.to respond_to :alive, :alive?, :width, :length }
 
   it 'is dead by default' do
     expect(subject.alive).to be false
@@ -15,6 +15,11 @@ describe Cell do
   it 'has x and y coordinates' do
     expect(subject.x_coord).to eq 1
     expect(subject.y_coord).to eq 1
+  end
+
+  it 'knows the size of its world' do
+    expect(subject.width).to eq 3
+    expect(subject.length).to eq 3
   end
 
   it 'has neighbours, each with their own coordinates' do
@@ -31,7 +36,7 @@ describe Cell do
   end
 
   it 'knows dimensions of world' do
-    expect(subject.grid_width).to eq 3
-    expect(subject.grid_length).to eq 3
+    expect(subject.width).to eq 3
+    expect(subject.length).to eq 3
   end
 end
