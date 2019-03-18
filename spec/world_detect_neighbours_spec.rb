@@ -22,7 +22,7 @@ describe World do
     end
 
     after(:each) do
-      expect(subject.find_live_neighbours(subject.grid[1][1])).to eq 4
+      expect(subject.count_live_neighbours(subject.grid[1][1])).to eq 4
     end
   end
 end
