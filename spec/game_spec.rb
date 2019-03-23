@@ -21,15 +21,15 @@ describe Game do
     expect(subject.world.grid[0][2]).not_to be_alive
   end
 
-  context 'when cell is alive' do
-    before(:each) do
-      subject = Game.new(World.new(3, 3), [[1, 1], [1, 2]])
-      subject.tick!
-    end
-
-    it 'dies if less than two live neighbours' do
-      expect(subject.world.grid[1][1]).not_to be_alive
-      expect(subject.world.grid[1][2]).not_to be_alive
-    end
-  end
+  # context 'when cell is alive' do
+  #   before(:each) do
+  #     subject = Game.new(World.new(3, 3), [[1, 1], [1, 2]])
+  #     subject.tick!
+  #   end
+  #
+  #   it 'dies if less than two live neighbours' do
+  #     expect(subject.world.grid[1][1]).not_to be_alive
+  #     expect(subject.world.grid[1][2]).not_to be_alive
+  #   end
+  # end
 end

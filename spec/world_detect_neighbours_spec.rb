@@ -2,7 +2,14 @@
 
 describe World do
   subject { World.new(3, 3) }
-  context 'cell can detect live neighbours' do
+
+  it 'knows where to find cell neighbours' do
+    expect(subject.find_live_neighbours(1, 1)).to include(
+      [0, 0], [0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1], [2, 2]
+    )
+  end
+
+  context 'counts cells live neighbours' do
     before(:each) do
       subject.grid[1][1].alive = true
     end
@@ -22,7 +29,7 @@ describe World do
     end
 
     after(:each) do
-      expect(subject.count_live_neighbours(subject.grid[1][1])).to eq 4
+      expect(subject.count_live_neighbours(1, 1)).to eq 4
     end
   end
 end
