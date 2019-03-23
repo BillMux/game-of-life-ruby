@@ -13,24 +13,24 @@ class World
     @grid = create_grid
   end
 
-  def find_live_neighbours(x, y)
+  def find_live_neighbours(x_co, y_co)
     [
-      [x - 1, y - 1], [x, y - 1],
-      [x + 1, y - 1], [x - 1, y],
-      [x + 1, y], [x - 1, y + 1],
-      [x, y + 1], [x + 1, y + 1]
+      [x_co - 1, y_co - 1], [x_co, y_co - 1],
+      [x_co + 1, y_co - 1], [x_co - 1, y_co],
+      [x_co + 1, y_co], [x_co - 1, y_co + 1],
+      [x_co, y_co + 1], [x_co + 1, y_co + 1]
     ]
   end
 
-  def count_live_neighbours(x, y)
+  def count_live_neighbours(x_co, y_co)
     count = 0
-    find_live_neighbours(x, y).each { |x, y| count += 1 if @grid[x][y].alive? }
+    find_live_neighbours(x_co, y_co).each do |x, y|
+      count += 1 if @grid[x][y].alive?
+    end
     count
   end
 
-  def delete_edge_neighbours(cell)
-
-  end
+  def delete_edge_neighbours(cell); end
 
   private
 
