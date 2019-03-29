@@ -12,28 +12,19 @@ class World
     @grid = create_grid
   end
 
-  def find_neighbours(cell_x, cell_y)
+  def neighbours_of(cell_x, cell_y)
     [
       [cell_x - 1, cell_y - 1], [cell_x, cell_y - 1],
       [cell_x + 1, cell_y - 1], [cell_x - 1, cell_y],
       [cell_x + 1, cell_y], [cell_x - 1, cell_y + 1],
       [cell_x, cell_y + 1], [cell_x + 1, cell_y + 1]
-    ]
+    ].keep_if { |x, y| x.between?(0, @rows - 1) && y.between?(0, @cols - 1) }
   end
 
   def count_live_neighbours(cell_x, cell_y)
     @count = 0
-    find_neighbours(cell_x, cell_y).each do |x, y|
+    neighbours_of(cell_x, cell_y).each do |x, y|
       @count += 1 if @grid[x][y].alive?
-    end
-    delete_edge_neighbours(cell_x, cell_y)
-  end
-
-  def delete_edge_neighbours(cell_x, cell_y)
-    find_neighbours(cell_x, cell_y).each do |x, y|
-      if x < 0 || y < 0 || x > (@rows - 1) || y > (@cols - 1)
-        @count -= 1
-      end
     end
     @count
   end
@@ -41,8 +32,8 @@ class World
   private
 
   def create_grid
-    Array.new(rows) do |row|
-      Array.new(cols) { |col| Cell.new(row, col) }
+    Array.new(@rows) do |row|
+      Array.new(@cols) { |col| Cell.new(row, col) }
     end
   end
 end
