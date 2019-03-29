@@ -4,8 +4,7 @@ require_relative 'cell'
 
 # 2d world in which the Game takes place
 class World
-  attr_reader :rows, :cols
-  attr_accessor :grid
+  attr_reader :rows, :cols, :grid
 
   def initialize(rows, cols)
     @rows = rows
@@ -13,24 +12,31 @@ class World
     @grid = create_grid
   end
 
-  def find_live_neighbours(x_co, y_co)
+  def find_neighbours(cell_x, cell_y)
     [
-      [x_co - 1, y_co - 1], [x_co, y_co - 1],
-      [x_co + 1, y_co - 1], [x_co - 1, y_co],
-      [x_co + 1, y_co], [x_co - 1, y_co + 1],
-      [x_co, y_co + 1], [x_co + 1, y_co + 1]
+      [cell_x - 1, cell_y - 1], [cell_x, cell_y - 1],
+      [cell_x + 1, cell_y - 1], [cell_x - 1, cell_y],
+      [cell_x + 1, cell_y], [cell_x - 1, cell_y + 1],
+      [cell_x, cell_y + 1], [cell_x + 1, cell_y + 1]
     ]
   end
 
-  def count_live_neighbours(x_co, y_co)
-    count = 0
-    find_live_neighbours(x_co, y_co).each do |x, y|
-      count += 1 if @grid[x][y].alive?
+  def count_live_neighbours(cell_x, cell_y)
+    @count = 0
+    find_neighbours(cell_x, cell_y).each do |x, y|
+      @count += 1 if @grid[x][y].alive?
     end
-    count
+    delete_edge_neighbours(cell_x, cell_y)
   end
 
-  def delete_edge_neighbours(cell); end
+  def delete_edge_neighbours(cell_x, cell_y)
+    find_neighbours(cell_x, cell_y).each do |x, y|
+      if x < 0 || y < 0 || x > (@rows - 1) || y > (@cols - 1)
+        @count -= 1
+      end
+    end
+    @count
+  end
 
   private
 
