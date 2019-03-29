@@ -21,15 +21,15 @@ describe World do
     end
 
     it 'in all directions' do
-      expect(subject.count_live_neighbours(1, 1)).to eq 8
+      expect(subject.neighbours_of(1, 1).count).to eq 8
     end
 
     it 'does not count neighbours with negative coordinates' do
-      expect(subject.count_live_neighbours(0, 0)).to eq 3
+      expect(subject.neighbours_of(0, 0).count).to eq 3
     end
 
     it 'does not count neighbours with higher coordinates than grid size' do
-      expect(subject.count_live_neighbours(2, 2)).to eq 3
+      expect(subject.neighbours_of(2, 2).count).to eq 3
     end
   end
 end

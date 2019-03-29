@@ -12,19 +12,21 @@ class Game
     plant_seeds
   end
 
-  def plant_seeds
-    @seeds.each do |seed|
-      @world.grid[seed[0]][seed[1]].alive = true
+  def tick!
+    @world.grid.each_with_index do |row, y|
+      row.each_with_index do |cell, x|
+        if cell.alive?
+          # cell must die if it has less than 2 live neighbours
+        end
+      end
     end
   end
 
-  def tick!
-    @world.grid.each do |row|
-      row.each do |cell|
-        if cell.alive?
-          # p @world.find_live_neighbours(cell)
-        end
-      end
+  private
+
+  def plant_seeds
+    @seeds.each do |seed|
+      @world.grid[seed[0]][seed[1]].alive = true
     end
   end
 end
