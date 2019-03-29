@@ -29,7 +29,7 @@ describe World do
     it 'without counting neighbours with higher coordinates than grid size' do
       expect(subject.neighbours_of(2, 2).count).to eq 3
     end
-  
+
     it 'and counts the alive neighbours' do
       expect(subject.count_live_neighbours(1, 1)).to eq 8
     end
