@@ -25,8 +25,6 @@ class Game
   private
 
   def plant_seeds
-    @seeds.each do |seed|
-      @world.grid[seed[0]][seed[1]].alive = true
-    end
+    @seeds.each { |seed| @world.grid[seed[0]][seed[1]].alive = true }
   end
 end
