@@ -18,7 +18,7 @@ class World
       [cell_x + 1, cell_y - 1], [cell_x - 1, cell_y],
       [cell_x + 1, cell_y], [cell_x - 1, cell_y + 1],
       [cell_x, cell_y + 1], [cell_x + 1, cell_y + 1]
-    ].keep_if { |x, y| x.between?(0, @rows - 1) && y.between?(0, @cols - 1) }
+    ].keep_if { |x, y| on_grid?(x, y) }
   end
 
   def count_live_neighbours(cell_x, cell_y)
@@ -35,5 +35,9 @@ class World
     Array.new(@rows) do |row|
       Array.new(@cols) { |col| Cell.new(row, col) }
     end
+  end
+
+  def on_grid?(cell_x, cell_y)
+    cell_x.between?(0, @rows - 1) && cell_y.between?(0, @cols - 1)
   end
 end
