@@ -8,9 +8,7 @@ describe World do
   context 'finds cells neighbours' do
     before(:each) do
       subject.grid.each do |row|
-        row.each do |col|
-          col.alive = true
-        end
+        row.each { |col| col.alive = true }
       end
     end
 
@@ -24,12 +22,16 @@ describe World do
       expect(subject.neighbours_of(1, 1).count).to eq 8
     end
 
-    it 'does not count neighbours with negative coordinates' do
+    it 'without counting neighbours with negative coordinates' do
       expect(subject.neighbours_of(0, 0).count).to eq 3
     end
 
-    it 'does not count neighbours with higher coordinates than grid size' do
+    it 'without counting neighbours with higher coordinates than grid size' do
       expect(subject.neighbours_of(2, 2).count).to eq 3
+    end
+  
+    it 'and counts the alive neighbours' do
+      expect(subject.count_live_neighbours(1, 1)).to eq 8
     end
   end
 end
