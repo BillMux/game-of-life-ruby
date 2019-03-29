@@ -15,12 +15,9 @@ class Game
   def tick!
     @world.grid.each_with_index do |row, y|
       row.each_with_index do |cell, x|
+        living = @world.count_live_neighbours(x, y)
         if cell.alive?
-          if @world.count_live_neighbours(x, y) < 2
-            cell.alive = false
-          elsif @world.count_live_neighbours(x, y) > 3
-            cell.alive = false
-          end
+          cell.alive = false if living < 2 || living > 3
         end
       end
     end

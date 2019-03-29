@@ -24,9 +24,7 @@ class World
   def count_live_neighbours(cell_x, cell_y)
     count = 0
     neighbours_of(cell_x, cell_y).each do |x, y|
-      if @grid[x][y].alive?
-        count += 1
-      end
+      count += 1 if @grid[x][y].alive?
     end
     count
   end
