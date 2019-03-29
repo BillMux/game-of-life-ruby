@@ -16,9 +16,8 @@ class Game
     @world.grid.each_with_index do |row, y|
       row.each_with_index do |cell, x|
         living = @world.count_live_neighbours(x, y)
-        if cell.alive?
-          cell.alive = false if living < 2 || living > 3
-        end
+        cell.alive = false if cell.alive? && (living < 2 || living > 3)
+        cell.alive = true if !cell.alive? && living == 3
       end
     end
   end
