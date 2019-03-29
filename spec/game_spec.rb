@@ -36,4 +36,12 @@ describe Game do
       expect(subject.world.grid[1][1]).not_to be_alive
     end
   end
+
+  context 'when cell is dead, and has three live neighbours' do
+    it 'is brought back to life' do
+      subject.seeds.delete([1, 1])
+      subject.seeds.push([2, 1], [0, 0])
+      expect(subject.world.grid[1][1]).to be_alive
+    end
+  end
 end
