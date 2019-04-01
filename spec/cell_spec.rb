@@ -4,8 +4,7 @@ require_relative '../lib/cell.rb'
 
 describe Cell do
   subject { Cell.new(1, 1) }
-  it { is_expected.to respond_to :x_coord, :y_coord }
-  it { is_expected.to respond_to :alive, :alive? }
+  it { is_expected.to respond_to :x_coord, :y_coord, :alive, :alive? }
 
   it 'is dead by default' do
     expect(subject).not_to be_alive
