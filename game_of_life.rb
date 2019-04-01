@@ -11,12 +11,12 @@ class GameOfLife < Gosu::Window
     @rows = @width / 10
     @cols = @height / 10
     @game = Game.new(World.new(@rows, @cols))
-    @game.randomly_populate!
+    @game.randomly_populate
 
     @background_colour = Gosu::Color.new(0xffdedede)
     @cell_colour = Gosu::Color.new.rgb(0, 0, 0)
     super width, height, false
-    self.caption = "BillMux's Game of Life"
+    self.caption = "Conway's Game of Life by Bill Muxworthy"
   end
 
   def update; end
