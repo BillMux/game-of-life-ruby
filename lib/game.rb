@@ -13,11 +13,14 @@ class Game
   end
 
   def tick!
-    @world.grid.each_with_index do |row, y|
-      row.each_with_index do |cell, x|
-        living = @world.count_live_neighbours(x, y)
-        cell.alive = false if cell.alive? && (living < 2 || living > 3)
-        cell.alive = true if !cell.alive? && living == 3
+    @world.grid.each_with_index do |row, x|
+      row.each_with_index do |cell, y|
+        live = @world.count_live_neighbours(x, y)
+        if cell.alive? && (live < 2 || live > 3)
+          cell.alive = false
+        elsif !cell.alive? && live == 3
+          cell.alive = true
+        end
       end
     end
   end
