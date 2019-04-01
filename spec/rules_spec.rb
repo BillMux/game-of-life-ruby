@@ -23,10 +23,9 @@ describe 'Game of Life rules' do
 
   context 'when cell is dead, and has three live neighbours' do
     it 'is brought back to life' do
-      subject.seeds.delete([1, 1])
-      subject.seeds.push([2, 1], [0, 0])
-      subject.tick!
-      expect(subject.world.grid[1][1]).to be_alive
+      game = Game.new(world, [[0, 0], [0, 1], [2, 1]])
+      game.tick!
+      expect(game.world.grid[1][1]).to be_alive
     end
   end
 end
