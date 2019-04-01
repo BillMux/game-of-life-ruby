@@ -14,7 +14,7 @@ class Game
     plant_seeds
   end
 
-  def randomly_populate
+  def randomly_populate!
     (1 + Random.rand(@world.rows)).times.map do
       @seeds << [Random.rand(@world.rows - 1), Random.rand(@world.cols - 1)]
     end
