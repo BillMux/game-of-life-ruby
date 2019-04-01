@@ -12,9 +12,11 @@ class GameOfLife < Gosu::Window
     @cols = @height / 10
     @game = Game.new(World.new(@rows, @cols))
     @game.randomly_populate
+    @col_width = @width / @cols
+    @row_height = @height / @rows
 
-    @background_colour = Gosu::Color.new(0xffdedede)
-    @cell_colour = Gosu::Color.new.rgb(0, 0, 0)
+    @background = Gosu::Color.new(0xffdedede)
+    @cell_colour = Gosu::Color.new(0xff121212)
     super width, height, false
     self.caption = "Conway's Game of Life by Bill Muxworthy"
   end
@@ -22,10 +24,28 @@ class GameOfLife < Gosu::Window
   def update; end
 
   def draw
-    draw_quad(0, 0, @background_colour,
-              @width, 0, @background_colour,
-              0, @height, @background_colour,
-              @width, @height, @background_colour)
+    draw_quad(0, 0, @background,
+              @width, 0, @background,
+              @width, @height, @background,
+              0, @height, @background)
+
+    @game.world.grid.each do |grid|
+      grid.each do |cell|
+        cell_width = cell.x_coord * @col_width
+        cell_height = cell.y_coord * @row_height
+        if cell.alive?
+          draw_quad(cell_width, cell_height, @cell_colour,
+                    cell_width + @col_width, cell_height, @cell_colour,
+                    cell_width, cell_height + @row_height, @cell_colour,
+                    cell_width + @col_width, cell_height + @row_height, @cell_colour)
+        else
+          draw_quad(cell_width, cell_height, @background,
+                    cell_width + @col_width, cell_height, @background,
+                    cell_width, cell_height + @row_height, @background,
+                    cell_width + @col_width, cell_height + @row_height, @background)
+        end
+      end
+    end
   end
 
   def needs_cursor?
