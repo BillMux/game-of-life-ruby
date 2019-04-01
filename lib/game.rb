@@ -14,6 +14,12 @@ class Game
     plant_seeds
   end
 
+  def randomly_populate
+    (1 + Random.rand(@world.rows)).times.map do
+      @seeds << [Random.rand(@world.rows - 1), Random.rand(@world.cols - 1)]
+    end
+  end
+
   def tick!
     @world.grid.each_with_index do |row, x|
       row.each_with_index do |cell, y|
