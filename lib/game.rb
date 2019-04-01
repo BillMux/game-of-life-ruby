@@ -14,10 +14,11 @@ class Game
     plant_seeds
   end
 
-  def randomly_populate!
-    (1 + Random.rand(@world.rows)).times.map do
+  def randomly_populate
+    (1 + Random.rand(@world.rows)).times do
       @seeds << [Random.rand(@world.rows - 1), Random.rand(@world.cols - 1)]
     end
+    @seeds
   end
 
   def tick!
