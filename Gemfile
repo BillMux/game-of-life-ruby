@@ -6,7 +6,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 ruby '2.5.1'
 
-gem 'gosu', '~> 0.10.8'
+gem 'gosu'
 
 group :test do
   gem 'rspec'
