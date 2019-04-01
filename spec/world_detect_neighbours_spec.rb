@@ -22,11 +22,8 @@ describe World do
       expect(subject.neighbours_of(1, 1).count).to eq 8
     end
 
-    it 'without counting neighbours with negative coordinates' do
+    it 'without counting neighbours beyond grid walls' do
       expect(subject.neighbours_of(0, 0).count).to eq 3
-    end
-
-    it 'without counting neighbours with higher coordinates than grid size' do
       expect(subject.neighbours_of(2, 2).count).to eq 3
     end
 
