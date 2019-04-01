@@ -10,7 +10,7 @@ describe 'Game of Life rules' do
     it 'dies if less than two live neighbours' do
       subject.tick!
       expect(subject.world.grid[1][1]).not_to be_alive
-      expect(subject.world.grid[1][2]).not_to be_alive
+      expect(subject.world.grid[0][1]).not_to be_alive
     end
 
     it 'dies if more than three live neighbours' do
