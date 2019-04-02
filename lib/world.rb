@@ -12,6 +12,14 @@ class World
     @grid = create_grid
   end
 
+  def randomly_populate
+    @grid.each do |row|
+      row.each do |cell|
+        cell.alive = [true, false].sample
+      end
+    end
+  end
+
   def neighbours_of(cell_x, cell_y)
     [
       [cell_x - 1, cell_y - 1], [cell_x, cell_y - 1],
