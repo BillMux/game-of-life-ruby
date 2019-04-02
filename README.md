@@ -2,7 +2,7 @@
 
 -WORK IN PROGRESS-
 
-My recreation of John Horton Conway's Game of Life in Ruby
+My recreation of John Horton Conway's Game of Life in Ruby.
 
 ## Rules:
 
@@ -13,6 +13,9 @@ My recreation of John Horton Conway's Game of Life in Ruby
 3. Any live cell with more than three live neighbours dies, as if by overpopulation.
 
 4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
+Live cells are represented as black squares
+Dead cells are represented as white squares
 
 ## To run tests:
 
