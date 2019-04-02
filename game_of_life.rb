@@ -8,12 +8,7 @@ class GameOfLife < Gosu::Window
   def initialize(width = 800, height = 600)
     @width = width
     @height = height
-    @rows = @width / 10
-    @cols = @height / 10
-    @game = Game.new(World.new(@rows, @cols))
-    @game.world.randomly_populate
-    @col_width = @height / @cols
-    @row_height = @width / @rows
+    setup_game
 
     @background = Gosu::Color.new(0xffdedede)
     @cell_colour = Gosu::Color.new(0xff121212)
@@ -55,6 +50,15 @@ class GameOfLife < Gosu::Window
       width, height + @row_height, colour,
       width + @col_width, height + @row_height, colour
     )
+  end
+
+  def setup_game
+    @rows = @width / 10
+    @cols = @height / 10
+    @game = Game.new(World.new(@rows, @cols))
+    @game.world.randomly_populate
+    @col_width = @height / @cols
+    @row_height = @width / @rows
   end
 end
 
