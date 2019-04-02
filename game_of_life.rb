@@ -16,23 +16,16 @@ class GameOfLife < Gosu::Window
     self.caption = "Conway's Game of Life by Bill Muxworthy"
   end
 
-  def update; end
+  def update
+    @game.tick!
+  end
 
   def draw
-    draw_quad(0, 0, @background,
-              @width, 0, @background,
-              @width, @height, @background,
-              0, @height, @background)
+    draw_background(@width, @height, @background)
 
     @game.world.grid.each do |grid|
       grid.each do |cell|
-        cell_width = cell.x_coord * @col_width
-        cell_height = cell.y_coord * @row_height
-        if cell.alive?
-          draw_cells(cell_width, cell_height, @cell_colour)
-        else
-          draw_cells(cell_width, cell_height, @background)
-        end
+        map_game(cell)
       end
     end
   end
@@ -43,6 +36,16 @@ class GameOfLife < Gosu::Window
 
   private
 
+  def map_game(cell)
+    cell_width = cell.x_coord * @col_width
+    cell_height = cell.y_coord * @row_height
+    if cell.alive?
+      draw_cells(cell_width, cell_height, @cell_colour)
+    else
+      draw_cells(cell_width, cell_height, @background)
+    end
+  end
+
   def draw_cells(width, height, colour)
     draw_quad(
       width, height, colour,
@@ -52,13 +55,22 @@ class GameOfLife < Gosu::Window
     )
   end
 
+  def draw_background(width, height, background)
+    draw_quad(
+      0, 0, background,
+      width, 0, background,
+      width, height, background,
+      0, height, background
+    )
+  end
+
   def setup_game
     @rows = @width / 10
     @cols = @height / 10
     @game = Game.new(World.new(@rows, @cols))
-    @game.world.randomly_populate
     @col_width = @height / @cols
     @row_height = @width / @rows
+    @game.world.randomly_populate
   end
 end
 
