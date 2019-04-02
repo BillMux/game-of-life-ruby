@@ -34,15 +34,9 @@ class GameOfLife < Gosu::Window
         cell_width = cell.x_coord * @col_width
         cell_height = cell.y_coord * @row_height
         if cell.alive?
-          draw_quad(cell_width, cell_height, @cell_colour,
-                    cell_width + @col_width, cell_height, @cell_colour,
-                    cell_width, cell_height + @row_height, @cell_colour,
-                    cell_width + @col_width, cell_height + @row_height, @cell_colour)
+          draw_cells(cell_width, cell_height, @cell_colour)
         else
-          draw_quad(cell_width, cell_height, @background,
-                    cell_width + @col_width, cell_height, @background,
-                    cell_width, cell_height + @row_height, @background,
-                    cell_width + @col_width, cell_height + @row_height, @background)
+          draw_cells(cell_width, cell_height, @background)
         end
       end
     end
@@ -50,6 +44,17 @@ class GameOfLife < Gosu::Window
 
   def needs_cursor?
     true
+  end
+
+  private
+
+  def draw_cells(width, height, colour)
+    draw_quad(
+      width, height, colour,
+      width + @col_width, height, colour,
+      width, height + @row_height, colour,
+      width + @col_width, height + @row_height, colour
+    )
   end
 end
 
