@@ -11,9 +11,9 @@ class GameOfLife < Gosu::Window
     @rows = @width / 10
     @cols = @height / 10
     @game = Game.new(World.new(@rows, @cols))
-    @game.randomly_populate
-    @col_width = @width / @cols
-    @row_height = @height / @rows
+    @game.world.randomly_populate
+    @col_width = @height / @cols
+    @row_height = @width / @rows
 
     @background = Gosu::Color.new(0xffdedede)
     @cell_colour = Gosu::Color.new(0xff121212)
