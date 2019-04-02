@@ -36,11 +36,11 @@ class Game
     elsif !cell.alive? && live == 3
       @live_next_round << cell
     else
-      others_remain(cell)
+      remaining(cell)
     end
   end
 
-  def others_remain(cell)
+  def remaining(cell)
     cell.alive? ? @live_next_round << cell : @dead_next_round << cell
   end
 end
