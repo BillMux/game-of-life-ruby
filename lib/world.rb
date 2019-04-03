@@ -36,9 +36,7 @@ class World
   private
 
   def create_grid
-    Array.new(@rows) do |row|
-      Array.new(@cols) { |col| Cell.new(row, col) }
-    end
+    Array.new(@rows) { |row| Array.new(@cols) { |col| Cell.new(row, col) } }
   end
 
   def on_grid?(cell_x, cell_y)
