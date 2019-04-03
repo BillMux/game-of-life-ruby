@@ -28,12 +28,17 @@ Dead cells are represented as white squares
 
 ## Running the app:
 
-1. Clone this repo: `git clone https://github.com/BillMux/game_of_life_ruby.git`
+1. Clone this repo:
+`git clone https://github.com/BillMux/game_of_life_ruby.git`
 
-2. Install dependencies: `bundle`
+2. Install dependencies:
+`bundle`
 
-3. Run the app: `ruby game_of_life.rb`
+3. Run the app:
+`ruby game_of_life.rb`
 
-### Running the tests: `rspec`
+### Running the tests:
+`rspec`
 
-### Running the linter: `rubocop`
+### Running the linter:
+`rubocop`
