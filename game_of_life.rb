@@ -14,7 +14,6 @@ class GameOfLife < Gosu::Window
     @cell_colour = Gosu::Color.new(0xff121212)
     super width, height, false
     self.caption = "Conway's Game of Life by Bill Muxworthy"
-    self.update_interval = 1
   end
 
   def update
