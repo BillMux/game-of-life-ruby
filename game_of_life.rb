@@ -31,10 +31,6 @@ class GameOfLife < Gosu::Window
     true
   end
 
-  def fps
-    100
-  end
-
   private
 
   def map_game(cell)
@@ -62,6 +58,9 @@ class GameOfLife < Gosu::Window
     @game = Game.new(World.new(@rows, @cols))
     @col_width = @height / @cols
     @row_height = @width / @rows
+
+    # comment the following line if you would like
+    # to customise the game's starting point
     @game.world.randomly_populate
   end
 end
