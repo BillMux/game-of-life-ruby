@@ -3,7 +3,7 @@
 
 My recreation of John Horton Conway's Game of Life in Ruby. The app will open a window which contains a grid of cells that can be alive or dead. The pattern of cells of the current generation determines the pattern of the next generation. The starting cells are generated completely at random.
 
-![Demo](images/game-of-life-1.gif)
+![Demo](images/game-of-life.gif)
 
 ### All cells abide by the following rules:
 
