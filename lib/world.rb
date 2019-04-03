@@ -13,11 +13,7 @@ class World
   end
 
   def randomly_populate
-    @grid.each do |row|
-      row.each do |cell|
-        cell.alive = [true, false].sample
-      end
-    end
+    @grid.each { |row| row.each { |cell| cell.alive = [true, false].sample } }
   end
 
   def neighbours_of(cell_x, cell_y)
