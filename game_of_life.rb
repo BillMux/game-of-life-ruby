@@ -14,6 +14,7 @@ class GameOfLife < Gosu::Window
     @cell_colour = Gosu::Color.new(0xff121212)
     super width, height, false
     self.caption = "Conway's Game of Life by Bill Muxworthy"
+    self.update_interval = 1
   end
 
   def update
@@ -28,6 +29,10 @@ class GameOfLife < Gosu::Window
 
   def needs_cursor?
     true
+  end
+
+  def fps
+    100
   end
 
   private
@@ -52,8 +57,8 @@ class GameOfLife < Gosu::Window
   end
 
   def setup_game
-    @rows = @width / 10
-    @cols = @height / 10
+    @rows = @width / 5
+    @cols = @height / 5
     @game = Game.new(World.new(@rows, @cols))
     @col_width = @height / @cols
     @row_height = @width / @rows
