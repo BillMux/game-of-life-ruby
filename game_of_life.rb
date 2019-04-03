@@ -21,8 +21,6 @@ class GameOfLife < Gosu::Window
   end
 
   def draw
-    draw_background(@width, @height, @background)
-
     @game.world.grid.each do |grid|
       grid.each { |cell| map_game(cell) }
     end
@@ -50,15 +48,6 @@ class GameOfLife < Gosu::Window
       width + @col_width, height, colour,
       width, height + @row_height, colour,
       width + @col_width, height + @row_height, colour
-    )
-  end
-
-  def draw_background(width, height, background)
-    draw_quad(
-      0, 0, background,
-      width, 0, background,
-      width, height, background,
-      0, height, background
     )
   end
 
