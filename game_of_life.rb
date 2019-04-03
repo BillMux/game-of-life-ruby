@@ -5,7 +5,7 @@ require_relative 'lib/game'
 
 # The frontend controller, powered by Gosu
 class GameOfLife < Gosu::Window
-  def initialize(width = 800, height = 600)
+  def initialize(width = 1600, height = 1200)
     @width = width
     @height = height
     setup_game
@@ -24,9 +24,7 @@ class GameOfLife < Gosu::Window
     draw_background(@width, @height, @background)
 
     @game.world.grid.each do |grid|
-      grid.each do |cell|
-        map_game(cell)
-      end
+      grid.each { |cell| map_game(cell) }
     end
   end
 
