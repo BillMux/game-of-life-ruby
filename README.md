@@ -1,10 +1,9 @@
 # Game of Life
 
--WORK IN PROGRESS-
 
-My recreation of John Horton Conway's Game of Life in Ruby.
+My recreation of John Horton Conway's Game of Life in Ruby. The app will open a window which contains a grid of cells that can be alive or dead. The pattern of cells of the current generation determines the pattern of the next generation. The starting cells are generated completely at random.
 
-## Rules:
+### All cells abide by the following rules:
 
 1. Any live cell with less than two live neighbours dies, as if by underpopulation.
 
@@ -17,10 +16,22 @@ My recreation of John Horton Conway's Game of Life in Ruby.
 Live cells are represented as black squares
 Dead cells are represented as white squares
 
-## To run tests:
+### Tech used:
 
-`rspec`
+- [Ruby 2.5.1](https://www.ruby-lang.org/en/)
+- [RSpec](https://github.com/rspec/rspec)
+- [RuboCop](https://github.com/rubocop-hq/rubocop)
+- [SimpleCov](https://github.com/colszowka/simplecov)
+- [Gosu](https://www.libgosu.org/)
 
-## To run linter:
+## Running the app:
 
-`rubocop`
+1. Clone this repo: `git clone https://github.com/BillMux/game_of_life_ruby.git`
+
+2. Install dependencies: `bundle`
+
+3. Run the app: `ruby game_of_life.rb`
+
+### Running the tests: `rspec`
+
+### Running the linter: `rubocop`
