@@ -21,9 +21,7 @@ class GameOfLife < Gosu::Window
   end
 
   def draw
-    @game.world.grid.each do |grid|
-      grid.each { |cell| map_game(cell) }
-    end
+    @game.world.grid.each { |grid| grid.each { |cell| map_game(cell) } }
   end
 
   def needs_cursor?
