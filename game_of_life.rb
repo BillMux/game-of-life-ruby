@@ -6,13 +6,13 @@ require_relative 'lib/game'
 # The frontend controller, powered by Gosu
 class GameOfLife < Gosu::Window
   def initialize(width = 1600, height = 1200)
+    super width, height, false
     @width = width
     @height = height
     setup_game
 
     @background = Gosu::Color.new(0xffdedede)
     @cell_colour = Gosu::Color.new(0xff121212)
-    super width, height, false
     self.caption = "Conway's Game of Life by Bill Muxworthy"
   end
 
