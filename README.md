@@ -31,10 +31,13 @@ Dead cells are represented as white squares
 1. Clone this repo:
 `git clone https://github.com/BillMux/game_of_life_ruby.git`
 
-2. Install dependencies:
+2. Change to directory:
+`cd game_of_life_ruby`
+
+3. Install dependencies:
 `bundle`
 
-3. Run the app:
+4. Run the app:
 `ruby game_of_life.rb`
 
 ### Running the tests:
