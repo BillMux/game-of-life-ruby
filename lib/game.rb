@@ -12,7 +12,7 @@ class Game
   # some examples:
   # blinker: [[1, 0], [1, 1], [1, 2]]
   # glider: [[1, 0], [2, 1], [0, 2], [1, 2], [2, 2]]
-  def initialize(world = World.new(20, 20), seeds = [])
+  def initialize(world, seeds = [])
     @world = world
     @seeds = seeds
     plant_seeds
