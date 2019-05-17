@@ -4,12 +4,13 @@ require 'gosu'
 require_relative 'lib/game'
 
 # The frontend controller, powered by Gosu
+# random_setup = false to customise the game yourself
 class GameOfLife < Gosu::Window
-  def initialize(width = 1600, height = 1200)
+  def initialize(width = 1600, height = 1200, cell_size = 5, random = true)
     super width, height, false
     @width = width
     @height = height
-    setup_game
+    setup_game(cell_size, random)
 
     @background = Gosu::Color.new(0xffdedede)
     @cell_colour = Gosu::Color.new(0xff121212)
@@ -49,16 +50,16 @@ class GameOfLife < Gosu::Window
     )
   end
 
-  def setup_game
-    @rows = @width / 5
-    @cols = @height / 5
+  def setup_game(cell_size, random)
+    @rows = @width / cell_size
+    @cols = @height / cell_size
     @game = Game.new(World.new(@rows, @cols))
     @col_width = @height / @cols
     @row_height = @width / @rows
 
     # comment the following line if you would like
     # to customise the game's starting point
-    @game.world.randomly_populate
+    @game.world.randomly_populate if random
   end
 end
 
